@@ -170,7 +170,7 @@
     .reveal-delay-3 { transition-delay: 0.4s; }
 
     /*
-      Page-2 light hero:
+      Page-2 hero (dark café overlay):
       Soft blur → sharp focus (~0.4s), no scan-line wait.
     */
     @keyframes focus-in {
@@ -418,38 +418,47 @@
 
   <main>
 
-    <!-- ========== PAGE TITLE（ライト＆エレガント） ========== -->
+    <!-- ========== PAGE TITLE（ダーク・エレガント・カフェ） ========== -->
     <section class="relative min-h-[72vh] sm:min-h-[78vh] flex items-center overflow-hidden" aria-label="Philosophy title">
-      <!-- Quiet, elegant background — no aggressive zoom -->
+      <!-- Refined café interior — dark overlay for typography contrast -->
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div class="hero-bg absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1504416285472-eccf03dd31eb?auto=format&fit=crop&w=2400&q=80"
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1920"
             alt=""
             class="absolute inset-0 h-full w-full object-cover object-center"
-            width="2400"
-            height="1600"
+            width="1920"
+            height="1280"
             fetchpriority="high"
           />
-          <div class="absolute inset-0 bg-gradient-to-b from-cream/92 via-cream/88 to-cream"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(250,248,245,0.35)_70%,rgba(250,248,245,0.7)_100%)]"></div>
+          <div class="absolute inset-0 bg-black/50"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-neutral-900/45 to-black/75"></div>
         </div>
       </div>
 
       <div class="relative z-10 w-full mx-auto max-w-4xl px-5 sm:px-8 lg:px-12 py-36 sm:py-44 lg:py-52 text-center">
-        <p class="hero-focus font-serif text-[0.7rem] sm:text-[0.75rem] tracking-[0.35em] uppercase text-champagne mb-8 sm:mb-10">
+        <p class="hero-focus font-serif text-[0.7rem] sm:text-[0.75rem] tracking-[0.35em] uppercase text-[#D4AF37] mb-8 sm:mb-10">
           Philosophy &amp; Approach
         </p>
 
-        <h1 class="hero-focus-delay font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.7] tracking-wide text-ink font-medium mb-8 sm:mb-10">
-          <span data-lang-block="ja">なぜ、Pranaなのか。<br class="sm:hidden" />私たちが貫く流儀。</span>
-          <span data-lang-block="en">Why Prana.<br />The principles we live by.</span>
-          <span data-lang-block="ne">किन Prana?<br />हामीले अँगालेको बाटो।</span>
+        <h1 class="hero-focus-delay font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.7] tracking-wide text-white font-medium mb-8 sm:mb-10">
+          <span data-lang-block="ja">
+            なぜ、Pranaなのか。<br />
+            <span class="mt-4 sm:mt-5 inline-block text-[0.95rem] sm:text-lg md:text-xl lg:text-[1.35rem] tracking-[0.12em] font-normal text-white/90">ー私たちが貫く流儀ー</span>
+          </span>
+          <span data-lang-block="en">
+            Why Prana.<br />
+            <span class="mt-4 sm:mt-5 inline-block text-[0.95rem] sm:text-lg md:text-xl lg:text-[1.35rem] tracking-[0.12em] font-normal text-white/90">— The principles we live by —</span>
+          </span>
+          <span data-lang-block="ne">
+            किन Prana?<br />
+            <span class="mt-4 sm:mt-5 inline-block text-[0.95rem] sm:text-lg md:text-xl lg:text-[1.35rem] tracking-[0.12em] font-normal text-white/90">— हामीले अँगालेको बाटो —</span>
+          </span>
         </h1>
 
-        <div class="hero-sub mx-auto mb-8 sm:mb-10 h-px w-16 sm:w-24 bg-champagne/70"></div>
+        <div class="hero-sub mx-auto mb-8 sm:mb-10 h-px w-16 sm:w-24 bg-[#D4AF37]/70"></div>
 
-        <p class="hero-sub font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2] text-ink-soft font-light max-w-xl mx-auto">
+        <p class="hero-sub font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2] text-white font-light max-w-xl mx-auto">
           <span data-lang-block="ja">修羅場を越えた実戦知と、血の通ったパートナーシップの原点。</span>
           <span data-lang-block="en">Hard-earned practice from the trenches — and the origin of a partnership with a pulse.</span>
           <span data-lang-block="ne">कठिन मैदानबाट आएको अनुभव र जीवन्त साझेदारीको उत्पत्ति।</span>
