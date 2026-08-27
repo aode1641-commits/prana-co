@@ -247,8 +247,59 @@
       filter: contrast(1.12) brightness(0.92) saturate(0.85);
     }
 
-    .img-crossover {
-      filter: contrast(1.08) saturate(0.9) brightness(0.94);
+    /* Shared warm grade so Art × Science panels feel like one composition */
+    .img-harmonize {
+      filter: grayscale(0.35) sepia(0.28) contrast(1.06) brightness(0.9) saturate(0.75);
+    }
+
+    .blend-duet {
+      position: relative;
+      overflow: hidden;
+    }
+    .blend-duet__panel {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .blend-duet__panel--art {
+      clip-path: polygon(0 0, 58% 0, 42% 100%, 0 100%);
+    }
+    .blend-duet__panel--science {
+      clip-path: polygon(58% 0, 100% 0, 100% 100%, 42% 100%);
+    }
+    @media (max-width: 639px) {
+      .blend-duet__panel--art {
+        clip-path: polygon(0 0, 100% 0, 100% 52%, 0 62%);
+      }
+      .blend-duet__panel--science {
+        clip-path: polygon(0 48%, 100% 38%, 100% 100%, 0 100%);
+      }
+    }
+    .blend-duet__seam {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      background: linear-gradient(
+        105deg,
+        transparent 42%,
+        rgba(250, 248, 245, 0.35) 49%,
+        rgba(201, 169, 110, 0.45) 50%,
+        rgba(250, 248, 245, 0.35) 51%,
+        transparent 58%
+      );
+    }
+    @media (max-width: 639px) {
+      .blend-duet__seam {
+        background: linear-gradient(
+          180deg,
+          transparent 42%,
+          rgba(250, 248, 245, 0.35) 49%,
+          rgba(201, 169, 110, 0.45) 50%,
+          rgba(250, 248, 245, 0.35) 51%,
+          transparent 58%
+        );
+      }
     }
 
     .section-num {
@@ -373,7 +424,7 @@
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div class="hero-bg absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=80"
+            src="https://images.unsplash.com/photo-1504416285472-eccf03dd31eb?auto=format&fit=crop&w=2400&q=80"
             alt=""
             class="absolute inset-0 h-full w-full object-cover object-center"
             width="2400"
@@ -419,7 +470,7 @@
               <div class="gold-frame">
                 <div class="overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
                   <img
-                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80"
+                    src="https://images.unsplash.com/photo-1606336784515-7f441cbe27b4?auto=format&fit=crop&w=1400&q=80"
                     alt="美しく灯るカウンター — 空気感のあるシズル写真"
                     class="img-sepia h-full w-full object-cover object-center scale-[1.02]"
                     width="1400"
@@ -520,7 +571,7 @@
               <figure>
                 <div class="overflow-hidden aspect-[5/4] shadow-[0_24px_60px_-28px_rgba(44,44,44,0.35)]">
                   <img
-                    src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80"
+                    src="https://images.unsplash.com/photo-1655396180225-dc317b20c256?auto=format&fit=crop&w=1600&q=80"
                     alt="厨房や現場での打ち合わせ — スナップ風の一コマ"
                     class="img-contrast h-full w-full object-cover object-center"
                     width="1600"
@@ -593,32 +644,32 @@
           <div class="lg:col-span-6">
             <div class="reveal-slide-right reveal-delay-2">
               <figure>
-                <div class="relative aspect-[4/5] sm:aspect-[3/4]">
-                  <!-- Art layer: cuisine / space -->
-                  <div class="absolute inset-0 overflow-hidden">
+                <div class="blend-duet relative aspect-[4/5] sm:aspect-[5/4] border border-champagne/40">
+                  <!-- Art: Japanese cafe dish / space -->
+                  <div class="blend-duet__panel blend-duet__panel--art">
                     <img
-                      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80"
-                      alt="本物の料理と店舗空間"
-                      class="img-crossover h-full w-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1735970336839-810a54623b42?auto=format&fit=crop&w=1400&q=80"
+                      alt="日本のカフェ風・料理と店舗空間"
+                      class="img-harmonize h-full w-full object-cover object-center scale-[1.04]"
                       width="1400"
                       height="1750"
                       loading="lazy"
                     />
                   </div>
-                  <!-- Science layer: laptop / data — overlapping crossover -->
-                  <div class="absolute right-0 bottom-0 w-[58%] h-[52%] overflow-hidden border border-champagne/60 shadow-[0_20px_50px_-20px_rgba(44,44,44,0.45)]">
+                  <!-- Science: laptop work in a warm cafe setting (same grade) -->
+                  <div class="blend-duet__panel blend-duet__panel--science">
                     <img
-                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-                      alt="ノートPCに映るデータと図面"
-                      class="h-full w-full object-cover object-center brightness-95 contrast-110"
-                      width="1200"
-                      height="900"
+                      src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1400&q=80"
+                      alt="カフェでノートPCに映るデータと図面"
+                      class="img-harmonize h-full w-full object-cover object-center scale-[1.04]"
+                      width="1400"
+                      height="1050"
                       loading="lazy"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-tr from-ink/25 to-transparent pointer-events-none"></div>
                   </div>
-                  <div class="absolute top-5 left-5 sm:top-6 sm:left-6">
-                    <p class="font-serif text-[0.65rem] sm:text-[0.7rem] tracking-[0.22em] uppercase text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.55)]">
+                  <div class="blend-duet__seam" aria-hidden="true"></div>
+                  <div class="absolute top-5 left-5 sm:top-6 sm:left-6 z-10">
+                    <p class="font-serif text-[0.65rem] sm:text-[0.7rem] tracking-[0.22em] uppercase text-ink/80 bg-cream/70 px-3 py-1.5 backdrop-blur-[2px]">
                       Art × Science
                     </p>
                   </div>
