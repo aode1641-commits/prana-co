@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prana co. — Philosophy &amp; Approach. なぜPranaなのか。修羅場を越えた実戦知と、血の通ったパートナーシップの原点。" />
+  <title>Philosophy &amp; Approach | Prana co.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF8F5',
+            ivory: '#F7F4EF',
+            champagne: '#C9A96E',
+            'champagne-light': '#E8D5A8',
+            'champagne-dark': '#A88B4A',
+            'luxury-gold': '#C9A96E',
+            ink: '#2C2C2C',
+            'ink-soft': '#5A5A5A',
+            'ink-mute': '#8A8A8A',
+            line: '#D4D0C8',
+          },
+          fontFamily: {
+            display: ['"Shippori Mincho"', '"Cormorant Garamond"', 'serif'],
+            serif: ['"Cormorant Garamond"', '"Shippori Mincho"', 'serif'],
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          letterSpacing: {
+            brand: '0.18em',
+            wider: '0.2em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --cream: #FAF8F5;
+      --ivory: #F7F4EF;
+      --champagne: #C9A96E;
+      --ink: #2C2C2C;
+      --line: #D4D0C8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .font-display { font-family: 'Shippori Mincho', 'Cormorant Garamond', serif; }
+    .font-serif { font-family: 'Cormorant Garamond', 'Shippori Mincho', serif; }
+
+    /* Champagne hairline that grows on hover */
+    .link-gold {
+      position: relative;
+      display: inline-block;
+    }
+    .link-gold::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1px;
+      background: var(--champagne);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .link-gold:hover::after,
+    .link-gold:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .btn-gold {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--champagne);
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1), left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-gold:hover::before,
+    .btn-gold:focus-visible::before {
+      left: 0;
+      width: 100%;
+    }
+
+    .lang-btn {
+      position: relative;
+      letter-spacing: 0.12em;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: #8A8A8A;
+      transition: color 0.3s ease;
+    }
+    .lang-btn:hover,
+    .lang-btn.is-active { color: var(--ink); }
+    .lang-btn.is-active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 1px;
+      background: var(--champagne);
+    }
+
+    .hairline {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-slide-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1), transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-slide-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1), transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-slide-left.is-visible,
+    .reveal-slide-right.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.26s; }
+    .reveal-delay-3 { transition-delay: 0.4s; }
+
+    /*
+      Page-2 light hero:
+      Soft blur → sharp focus (~0.4s), no scan-line wait.
+    */
+    @keyframes focus-in {
+      0% {
+        opacity: 0;
+        filter: blur(6px);
+        transform: translateY(6px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+    @keyframes fade-up-soft {
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes bg-settle {
+      0% {
+        opacity: 0;
+        transform: scale(1.04);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .hero-focus {
+      animation: focus-in 0.4s ease-out both;
+    }
+    .hero-focus-delay {
+      animation: focus-in 0.4s ease-out 0.08s both;
+    }
+    .hero-sub {
+      animation: fade-up-soft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+    }
+    .hero-bg {
+      animation: bg-settle 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .header-scrolled {
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212, 208, 200, 0.55);
+    }
+
+    .gold-frame {
+      position: relative;
+      padding: 10px;
+    }
+    .gold-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(201, 169, 110, 0.55);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .img-sepia {
+      filter: grayscale(1) sepia(0.35) contrast(1.05) brightness(0.88);
+    }
+
+    .img-contrast {
+      filter: contrast(1.12) brightness(0.92) saturate(0.85);
+    }
+
+    .img-crossover {
+      filter: contrast(1.08) saturate(0.9) brightness(0.94);
+    }
+
+    .section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--champagne);
+      letter-spacing: 0.08em;
+    }
+
+    .mobile-nav {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-nav.is-open { max-height: 220px; }
+
+    [data-lang-block] { display: none !important; }
+    html[lang="ja"] [data-lang-block="ja"],
+    html[lang="en"] [data-lang-block="en"],
+    html[lang="ne"] [data-lang-block="ne"] { display: block !important; }
+
+    [data-lang-inline] { display: none !important; }
+    html[lang="ja"] [data-lang-inline="ja"],
+    html[lang="en"] [data-lang-inline="en"],
+    html[lang="ne"] [data-lang-inline="ne"] { display: inline !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-focus,
+      .hero-focus-delay,
+      .hero-sub,
+      .hero-bg {
+        animation: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+      }
+      .reveal,
+      .reveal-slide-left,
+      .reveal-slide-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-cream text-ink overflow-x-hidden">
+
+  <!-- ========== HEADER ========== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-cream/80 backdrop-blur-sm border-b border-transparent">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+      <div class="flex h-[4.5rem] sm:h-20 items-center justify-between">
+        <a href="index.html" class="group flex items-baseline gap-1.5 shrink-0">
+          <span class="font-display text-[1.35rem] sm:text-2xl tracking-brand font-medium text-ink transition-opacity duration-500 group-hover:opacity-80">Prana</span>
+          <span class="font-serif text-sm sm:text-base tracking-wider text-champagne italic">co.</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 lg:gap-10">
+          <nav class="flex items-center gap-7 text-[0.7rem] tracking-wider uppercase">
+            <a href="index.html" class="link-gold text-ink-soft hover:text-ink transition-colors duration-300">
+              <span data-lang-inline="ja">トップ</span>
+              <span data-lang-inline="en">Home</span>
+              <span data-lang-inline="ne">होम</span>
+            </a>
+          </nav>
+
+          <div class="flex items-center gap-3 border-l border-line pl-7" role="group" aria-label="Language">
+            <button type="button" class="lang-btn is-active" data-set-lang="ja" aria-pressed="true">日本語</button>
+            <span class="text-line text-[0.55rem]">|</span>
+            <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">English</button>
+            <span class="text-line text-[0.55rem]">|</span>
+            <button type="button" class="lang-btn" data-set-lang="ne" aria-pressed="false" style="font-family: 'Noto Sans Devanagari', 'Noto Sans JP', sans-serif; letter-spacing: 0.02em;">नेपाली</button>
+          </div>
+
+          <a href="index.html#contact" class="btn-gold inline-flex items-center justify-center border border-ink/25 px-6 py-2.5 text-[0.7rem] tracking-wider uppercase text-ink transition-all duration-400 hover:border-champagne">
+            Contact
+          </a>
+        </div>
+
+        <div class="flex md:hidden items-center gap-3">
+          <div class="flex items-center gap-2">
+            <button type="button" class="lang-btn is-active" data-set-lang="ja" aria-pressed="true">日本語</button>
+            <span class="text-line text-[0.5rem]">|</span>
+            <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">English</button>
+            <span class="text-line text-[0.5rem]">|</span>
+            <button type="button" class="lang-btn" data-set-lang="ne" aria-pressed="false" style="font-family: 'Noto Sans Devanagari', 'Noto Sans JP', sans-serif; letter-spacing: 0.02em;">नेपाली</button>
+          </div>
+          <a href="index.html#contact" class="btn-gold border border-ink/25 px-3.5 py-1.5 text-[0.65rem] tracking-wider uppercase text-ink">
+            Contact
+          </a>
+          <button id="menu-toggle" type="button" class="flex flex-col gap-[5px] p-1" aria-label="Menu" aria-expanded="false">
+            <span class="block h-px w-5 bg-ink transition-all duration-300 origin-center" data-bar="1"></span>
+            <span class="block h-px w-5 bg-ink transition-all duration-300" data-bar="2"></span>
+            <span class="block h-px w-5 bg-ink transition-all duration-300 origin-center" data-bar="3"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav md:hidden bg-cream/95 backdrop-blur-md border-t border-line/50">
+      <nav class="flex flex-col gap-1 px-6 py-5 text-sm tracking-wide">
+        <a href="index.html" class="link-gold py-3 border-b border-line/40 font-display text-ink" data-close-menu>
+          <span data-lang-inline="ja">トップページへ戻る</span>
+          <span data-lang-inline="en">Back to Home</span>
+          <span data-lang-inline="ne">होममा फर्कनुहोस्</span>
+        </a>
+        <a href="index.html#contact" class="link-gold py-3 font-display text-ink" data-close-menu>
+          <span data-lang-inline="ja">お問い合わせ</span>
+          <span data-lang-inline="en">Contact</span>
+          <span data-lang-inline="ne">सम्पर्क</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== PAGE TITLE（ライト＆エレガント） ========== -->
+    <section class="relative min-h-[72vh] sm:min-h-[78vh] flex items-center overflow-hidden" aria-label="Philosophy title">
+      <!-- Quiet, elegant background — no aggressive zoom -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="hero-bg absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=80"
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover object-center"
+            width="2400"
+            height="1600"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-cream/92 via-cream/88 to-cream"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(250,248,245,0.35)_70%,rgba(250,248,245,0.7)_100%)]"></div>
+        </div>
+      </div>
+
+      <div class="relative z-10 w-full mx-auto max-w-4xl px-5 sm:px-8 lg:px-12 py-36 sm:py-44 lg:py-52 text-center">
+        <p class="hero-focus font-serif text-[0.7rem] sm:text-[0.75rem] tracking-[0.35em] uppercase text-champagne mb-8 sm:mb-10">
+          Philosophy &amp; Approach
+        </p>
+
+        <h1 class="hero-focus-delay font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.7] tracking-wide text-ink font-medium mb-8 sm:mb-10">
+          <span data-lang-block="ja">なぜ、Pranaなのか。<br class="sm:hidden" />私たちが貫く流儀。</span>
+          <span data-lang-block="en">Why Prana.<br />The principles we live by.</span>
+          <span data-lang-block="ne">किन Prana?<br />हामीले अँगालेको बाटो।</span>
+        </h1>
+
+        <div class="hero-sub mx-auto mb-8 sm:mb-10 h-px w-16 sm:w-24 bg-champagne/70"></div>
+
+        <p class="hero-sub font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2] text-ink-soft font-light max-w-xl mx-auto">
+          <span data-lang-block="ja">修羅場を越えた実戦知と、血の通ったパートナーシップの原点。</span>
+          <span data-lang-block="en">Hard-earned practice from the trenches — and the origin of a partnership with a pulse.</span>
+          <span data-lang-block="ne">कठिन मैदानबाट आएको अनुभव र जीवन्त साझेदारीको उत्पत्ति।</span>
+        </p>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+      <div class="hairline"></div>
+    </div>
+
+    <!-- ========== 1. WHY PRANA ========== -->
+    <section id="why-prana" class="relative bg-cream py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="reveal-slide-left">
+              <div class="gold-frame">
+                <div class="overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
+                  <img
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80"
+                    alt="美しく灯るカウンター — 空気感のあるシズル写真"
+                    class="img-sepia h-full w-full object-cover object-center scale-[1.02]"
+                    width="1400"
+                    height="1750"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <p class="mt-5 font-serif text-[0.7rem] tracking-wide text-ink-mute italic text-center lg:text-left">
+                <span data-lang-inline="ja">持続可能な生命力を、店に吹き込む。</span>
+                <span data-lang-inline="en">Breathing lasting vitality into every place.</span>
+                <span data-lang-inline="ne">दिगो जीवनशक्ति प्रत्येक पसलमा।</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 order-1 lg:order-2">
+            <div class="reveal mb-5">
+              <p class="section-num text-2xl sm:text-3xl mb-3">01</p>
+              <p class="font-serif text-[0.7rem] tracking-[0.28em] uppercase text-champagne mb-4">Why Prana?</p>
+              <h2 class="font-display text-2xl sm:text-3xl lg:text-[2.15rem] tracking-wide text-ink leading-[1.65]">
+                <span data-lang-block="ja">なぜ Prana なのか</span>
+                <span data-lang-block="en">Why We Chose Prana</span>
+                <span data-lang-block="ne">किन हामीले Prana रोजेका हौं</span>
+              </h2>
+            </div>
+
+            <div class="reveal reveal-delay-1 hairline max-w-md mb-10 mt-8"></div>
+
+            <div class="reveal reveal-delay-2 space-y-7 font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2.05] text-ink-soft font-light max-w-xl">
+              <p data-lang-block="ja">
+                ネパール語で「生命力・息吹」を意味するPrana。
+              </p>
+              <p data-lang-block="en">
+                In Nepali, Prana means life force — the breath itself.
+              </p>
+              <p data-lang-block="ne">
+                नेपालीमा Prana भनेको जीवनशक्ति — सास नै हो।
+              </p>
+
+              <p data-lang-block="ja">
+                私たちが目指すのは、一時的な流行や表面的な数字の繕いではありません。携わったすべての飲食店が、その場所で長く、力強く生き残り、愛され続けること。「持続可能な生命力」を吹き込み、その未来を伴走し続けるために、この名を選びました。
+              </p>
+              <p data-lang-block="en">
+                We do not chase fleeting trends or cosmetic metrics. Every restaurant we touch should endure — strong, loved, rooted in its place. We chose this name to breathe lasting vitality into each one, and to walk beside that future.
+              </p>
+              <p data-lang-block="ne">
+                हामी क्षणिक फेसन वा सतही अंक पछ्याउँदैनौं। हामीले छोएका हरेक रेष्टुरेन्ट लामो समयसम्म बलियो र मायालु रहोस्। दिगो जीवनशक्ति भर्ने र त्यस भविष्यसँगै हिँड्ने प्रतिबद्धताका लागि यो नाम रोजेका हौं।
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2. PRACTICE & PARTNERSHIP ========== -->
+    <section id="practice" class="relative bg-ivory py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+          <div class="lg:col-span-6">
+            <div class="reveal mb-5">
+              <p class="section-num text-2xl sm:text-3xl mb-3">02</p>
+              <p class="font-serif text-[0.7rem] tracking-[0.28em] uppercase text-champagne mb-4">Practice &amp; Results</p>
+              <h2 class="font-display text-2xl sm:text-3xl lg:text-[2.15rem] tracking-wide text-ink leading-[1.65]">
+                <span data-lang-block="ja">私たちの働き方 ＆ 経験／結果</span>
+                <span data-lang-block="en">How We Work — Experience &amp; Results</span>
+                <span data-lang-block="ne">हाम्रो काम गर्ने तरिका — अनुभव र परिणाम</span>
+              </h2>
+            </div>
+
+            <div class="reveal reveal-delay-1 hairline max-w-md mb-10 mt-8"></div>
+
+            <div class="reveal reveal-delay-2 space-y-7 font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2.05] text-ink-soft font-light max-w-xl">
+              <p data-lang-block="ja">
+                2007年の創業から今日まで、私たちは現場を這いずりながら最大6店舗の多店舗展開を実現してきました。さらに、独自ブランドのフランチャイズ（FCオーナー）として、数多くの店舗と挑戦者をゼロから生み出してきた確かな実戦知を持っています。
+              </p>
+              <p data-lang-block="en">
+                From our founding in 2007 to today, we have crawled through the floor work of scaling up to six locations. As an original-brand franchise owner, we have built stores — and challengers — from zero, with hard-won practical knowledge.
+              </p>
+              <p data-lang-block="ne">
+                २००७ को स्थापनादेखि आजसम्म, मैदानमा लडेसम्म अधिकतम ६ वटा शाखासम्म विस्तार गरेका छौं। आफ्नै ब्रान्ड फ्रान्चाइजी मालिकको रूपमा धेरै पसल र उद्यमीहरूलाई शून्यबाट जन्माएको ठोस अनुभव छ।
+              </p>
+
+              <p data-lang-block="ja">
+                私たちは、机上の空論を語るだけのコンサルタントではありません。実際に現場に入って店舗を立ち上げてきた経験を活かし、クライアントの隣に立ち、同じ目線で汗をかき、現場の泥臭い課題を共に解決する「実戦型パートナー」として伴走します。
+              </p>
+              <p data-lang-block="en">
+                We are not consultants who only theorize from a desk. Drawing on years of opening stores on the floor, we stand beside our clients, sweat at the same height, and solve the messy problems together — as a battle-tested partner.
+              </p>
+              <p data-lang-block="ne">
+                हामी केवल डेस्कबाट सिद्धान्त बोल्ने सल्लाहकार होइनौं। वास्तविक मैदानमा पसल खोलेको अनुभव लिएर ग्राहकको छेउमा उभिन्छौं, उही उचाइमा पसिना बगाउँछौं, र मैदानका कठिन समस्या सँगै समाधान गर्ने व्यावहारिक साझेदारको रूपमा साथ दिन्छौं।
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="reveal-slide-right reveal-delay-1">
+              <figure>
+                <div class="overflow-hidden aspect-[5/4] shadow-[0_24px_60px_-28px_rgba(44,44,44,0.35)]">
+                  <img
+                    src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80"
+                    alt="厨房や現場での打ち合わせ — スナップ風の一コマ"
+                    class="img-contrast h-full w-full object-cover object-center"
+                    width="1600"
+                    height="1280"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption class="mt-5 font-serif text-[0.7rem] tracking-wide text-ink-mute italic text-center lg:text-left">
+                  <span data-lang-block="ja">現場の熱量を、そのまま隣で分かち合う。</span>
+                  <span data-lang-block="en">Sharing the heat of the floor — side by side.</span>
+                  <span data-lang-block="ne">मैदानको ताप सँगै बाँड्ने।</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. OUR APPROACH ========== -->
+    <section id="approach" class="relative bg-cream py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="reveal mb-4 text-center lg:text-left">
+          <p class="section-num text-2xl sm:text-3xl mb-3">03</p>
+          <p class="font-serif text-[0.7rem] tracking-[0.28em] uppercase text-champagne mb-4">Our Approach</p>
+          <h2 class="font-display text-2xl sm:text-3xl lg:text-[2.15rem] tracking-wide text-ink leading-[1.65] max-w-2xl mx-auto lg:mx-0">
+            <span data-lang-block="ja">私たちがどのように取り組んでいるか</span>
+            <span data-lang-block="en">How We Approach the Work</span>
+            <span data-lang-block="ne">हामी कसरी काम गर्छौं</span>
+          </h2>
+        </div>
+
+        <div class="reveal reveal-delay-1 hairline mb-16 sm:mb-20 lg:mb-24 mt-10"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start">
+          <div class="lg:col-span-6 space-y-14 sm:space-y-16">
+            <article class="reveal">
+              <div class="flex items-baseline gap-4 mb-5">
+                <span class="section-num text-xl sm:text-2xl shrink-0">01.</span>
+                <h3 class="font-display text-lg sm:text-xl tracking-wide text-ink leading-snug">
+                  <span data-lang-block="ja">現場の熱量 × デジタルインフラ</span>
+                  <span data-lang-block="en">Floor Heat × Digital Infrastructure</span>
+                  <span data-lang-block="ne">मैदानको ताप × डिजिटल पूर्वाधार</span>
+                </h3>
+              </div>
+              <p class="font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2.05] text-ink-soft font-light pl-0 sm:pl-12">
+                <span data-lang-block="ja">現場の人の想いと、現代に不可欠なデータによる「Science」を融合させます。表面的な課題解決にとどまらず、売上を最大化し持続させる仕組みを構築します。</span>
+                <span data-lang-block="en">We fuse the passion of people on the floor with the Science of indispensable modern data — building systems that maximize and sustain revenue, not just patch surface problems.</span>
+                <span data-lang-block="ne">मैदानका मानिसको भावना र आधुनिक डाटाको Science लाई जोड्छौं। सतही समाधान होइन, बिक्री अधिकतम र दिगो बनाउने प्रणाली निर्माण गर्छौं।</span>
+              </p>
+            </article>
+
+            <article class="reveal reveal-delay-1">
+              <div class="flex items-baseline gap-4 mb-5">
+                <span class="section-num text-xl sm:text-2xl shrink-0">02.</span>
+                <h3 class="font-display text-lg sm:text-xl tracking-wide text-ink leading-snug">
+                  <span data-lang-block="ja">国境を越えるパートナーシップ</span>
+                  <span data-lang-block="en">Partnership Beyond Borders</span>
+                  <span data-lang-block="ne">सीमापार साझेदारी</span>
+                </h3>
+              </div>
+              <p class="font-sans text-[0.9rem] sm:text-[0.95rem] leading-[2.05] text-ink-soft font-light pl-0 sm:pl-12">
+                <span data-lang-block="ja">日本国内での挑戦を志す日本人およびネパール人・外国籍の起業家に対し、言語や文化の壁を越えた確実な伴走とエコシステムを提供します。誰もがフェアに挑戦し、長く愛される店を創り上げられる環境をつくります。</span>
+                <span data-lang-block="en">For Japanese, Nepali, and international entrepreneurs aiming to build in Japan, we offer sure-footed accompaniment and an ecosystem that crosses language and culture — so anyone can challenge fairly and create a place that is loved for years.</span>
+                <span data-lang-block="ne">जापानमा चुनौती लिन चाहने जापानी, नेपाली र विदेशी उद्यमीहरूलाई भाषा र संस्कृतिको पर्खाल पार गरेर निश्चित साथ र पारिस्थितिकी प्रणाली दिन्छौं — जसले सबैलाई निष्पक्ष रूपमा चुनौती दिन र लामो समयसम्म मायालु पसल बनाउन सकून्।</span>
+              </p>
+            </article>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="reveal-slide-right reveal-delay-2">
+              <figure>
+                <div class="relative aspect-[4/5] sm:aspect-[3/4]">
+                  <!-- Art layer: cuisine / space -->
+                  <div class="absolute inset-0 overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80"
+                      alt="本物の料理と店舗空間"
+                      class="img-crossover h-full w-full object-cover object-center"
+                      width="1400"
+                      height="1750"
+                      loading="lazy"
+                    />
+                  </div>
+                  <!-- Science layer: laptop / data — overlapping crossover -->
+                  <div class="absolute right-0 bottom-0 w-[58%] h-[52%] overflow-hidden border border-champagne/60 shadow-[0_20px_50px_-20px_rgba(44,44,44,0.45)]">
+                    <img
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                      alt="ノートPCに映るデータと図面"
+                      class="h-full w-full object-cover object-center brightness-95 contrast-110"
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-tr from-ink/25 to-transparent pointer-events-none"></div>
+                  </div>
+                  <div class="absolute top-5 left-5 sm:top-6 sm:left-6">
+                    <p class="font-serif text-[0.65rem] sm:text-[0.7rem] tracking-[0.22em] uppercase text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.55)]">
+                      Art × Science
+                    </p>
+                  </div>
+                </div>
+                <figcaption class="mt-5 font-serif text-[0.7rem] tracking-wide text-ink-mute italic text-center lg:text-left">
+                  <span data-lang-block="ja">アート（現場・想い）とサイエンス（データ・仕組み）の融合。</span>
+                  <span data-lang-block="en">Where art (the floor, the heart) meets science (data, systems).</span>
+                  <span data-lang-block="ne">कला (मैदान, भावना) र विज्ञान (डाटा, प्रणाली) को मिलन।</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="relative bg-ivory py-24 sm:py-32 lg:py-36">
+      <div class="mx-auto max-w-3xl px-5 sm:px-8 text-center">
+        <div class="reveal">
+          <p class="font-serif text-[0.7rem] tracking-[0.35em] uppercase text-champagne mb-8">
+            Begin a Conversation
+          </p>
+          <h2 class="font-display text-xl sm:text-2xl lg:text-3xl tracking-wide text-ink leading-[1.75] mb-6">
+            <span data-lang-block="ja">未来の一軒を、ともに。</span>
+            <span data-lang-block="en">One place, built together.</span>
+            <span data-lang-block="ne">एउटा पसल, सँगै।</span>
+          </h2>
+          <p class="font-sans text-[0.9rem] leading-[2] text-ink-soft font-light mb-12 sm:mb-14 max-w-md mx-auto">
+            <span data-lang-block="ja">開業も、成長も。まずはお気軽にお問い合わせください。</span>
+            <span data-lang-block="en">Opening or growing — start with a quiet conversation.</span>
+            <span data-lang-block="ne">खोल्ने होस् वा बढाउने — पहिले शान्त कुराकानीबाट।</span>
+          </p>
+          <a
+            href="index.html#contact"
+            class="btn-gold group inline-flex items-center justify-center gap-4 border border-ink px-12 py-4 text-[0.7rem] tracking-wider uppercase text-ink transition-all duration-500 hover:bg-ink hover:text-cream"
+          >
+            <span data-lang-inline="ja">お問い合わせへ</span>
+            <span data-lang-inline="en">Go to Contact</span>
+            <span data-lang-inline="ne">सम्पर्कमा जानुहोस्</span>
+            <span class="text-champagne transition-transform duration-400 group-hover:translate-x-1 group-hover:text-champagne-light" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-12 sm:py-16">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
+        <div>
+          <a href="index.html" class="inline-flex items-baseline gap-1.5">
+            <span class="font-display text-xl tracking-brand text-ink">Prana</span>
+            <span class="font-serif text-sm tracking-wider text-champagne italic">co.</span>
+          </a>
+          <p class="mt-3 text-[0.7rem] tracking-wide text-ink-mute leading-relaxed max-w-xs">
+            <span data-lang-block="ja">飲食店完全特化型パートナーシップ</span>
+            <span data-lang-block="en">Restaurant-specialized partnership</span>
+            <span data-lang-block="ne">रेष्टुरेन्ट-विशेष साझेदारी</span>
+          </p>
+        </div>
+        <div class="flex flex-col sm:items-end gap-3">
+          <nav class="flex gap-6 text-[0.65rem] tracking-wider uppercase text-ink-soft">
+            <a href="index.html" class="link-gold hover:text-ink transition-colors">Home</a>
+            <a href="index.html#contact" class="link-gold hover:text-ink transition-colors">Contact</a>
+          </nav>
+          <p class="text-[0.65rem] text-ink-mute tracking-wide">
+            &copy; Prana co. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+
+      function setLanguage(lang) {
+        html.setAttribute('lang', lang);
+        document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+          const active = btn.getAttribute('data-set-lang') === lang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        try { localStorage.setItem('prana-lang', lang); } catch (e) { /* ignore */ }
+      }
+
+      document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLanguage(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      let initial = 'ja';
+      try {
+        const saved = localStorage.getItem('prana-lang');
+        if (saved && ['ja', 'en', 'ne'].indexOf(saved) !== -1) initial = saved;
+      } catch (e) { /* ignore */ }
+      setLanguage(initial);
+
+      const header = document.getElementById('site-header');
+      function onScroll() {
+        if (!header) return;
+        header.classList.toggle('header-scrolled', window.scrollY > 24);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      const toggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const bars = toggle ? toggle.querySelectorAll('[data-bar]') : [];
+
+      function closeMenu() {
+        if (!mobileNav || !toggle) return;
+        mobileNav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        if (bars[0]) bars[0].style.transform = '';
+        if (bars[1]) bars[1].style.opacity = '';
+        if (bars[2]) bars[2].style.transform = '';
+      }
+
+      function openMenu() {
+        if (!mobileNav || !toggle) return;
+        mobileNav.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        if (bars[0]) bars[0].style.transform = 'translateY(6px) rotate(45deg)';
+        if (bars[1]) bars[1].style.opacity = '0';
+        if (bars[2]) bars[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          if (mobileNav.classList.contains('is-open')) closeMenu();
+          else openMenu();
+        });
+      }
+      document.querySelectorAll('[data-close-menu]').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      const revealEls = document.querySelectorAll('.reveal, .reveal-slide-left, .reveal-slide-right');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+        );
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    })();
+  </script>
+</body>
+</html>
